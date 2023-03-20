@@ -8,11 +8,10 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-const char* path_to_file = "result.out";
+const char* path_to_file = "/home/box/result.out";
 
 void exec_command(int j, std::vector<std::string> &tokens)
 {
-    
         //split command by gap
         size_t pos = 0;
         std::string token;
@@ -94,10 +93,8 @@ void execute_line(std::vector<std::string> &commands, int n, int *fd)
             close(fd[0]);
             close(fd[1]);
 
-
             exec_command(n, commands);
             }
-        
     }
     
 }
@@ -107,7 +104,6 @@ void execute_line(std::vector<std::string> &commands, int n, int *fd)
 int main()
 {
     //std::string str = "ls | sort"; //"who | sort | uniq -c | sort -nk1"; //"ls | sort | wc -l";
-    
     
     std::string str;
     
@@ -127,12 +123,11 @@ int main()
     }
     tokens.push_back(str);
     int N_Com = tokens.size();
-    
+    /*
     for (int i=0; i<N_Com;i++){
             std::cout << tokens[i] << std::endl;
         }
-    
-
+    */
     /*
     char* argument_list[] = {"who"}; //{"ls", "-l",NULL};
     execvp("who",argument_list);
